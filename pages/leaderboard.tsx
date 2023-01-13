@@ -16,7 +16,7 @@ export default function Stack() {
         <section className="bg-darkest-gray px-10 relative">
           <div className="max-w-xl m-auto p-8">
             <Link href={"/stack"}>
-              <FaChevronLeft className="absolute top-4 left-4 text-lightest-gray text-5xl" />
+              <FaChevronLeft className="absolute top-10 left-10 text-lightest-gray text-5xl" />
             </Link>
             <p className="text-2xl text-lightest-gray py-4">Leaderboard</p>
             <Leaderboard />
