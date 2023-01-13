@@ -7,6 +7,7 @@ import {
 } from "./leaderboard";
 import { MdLeaderboard, MdArrowBack } from "react-icons/md";
 import Link from "next/link";
+import { relative } from "path/posix";
 
 interface BallProps {
   active?: boolean;
@@ -100,16 +101,14 @@ export const Leaderboard = () => {
   if (isLoading) return <>Loading...</>;
   if (data) {
     return (
-      <>
+      <div className="relative">
         <Link href={"/stack"}>
-          <MdArrowBack className="absolute top-10 right-10 text-lightest-gray text-6xl" />
+          <MdArrowBack className="absolute top-4 right-4 text-lightest-gray text-5xl" />
         </Link>
-        <div>
-          {data.map((place: LeaderboardPlace, index: number) => (
-            <LeaderboardRow key={index} place={place} num={index + 1} />
-          ))}
-        </div>
-      </>
+        {data.map((place: LeaderboardPlace, index: number) => (
+          <LeaderboardRow key={index} place={place} num={index + 1} />
+        ))}
+      </div>
     );
   }
   return null;
