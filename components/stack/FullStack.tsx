@@ -5,7 +5,7 @@ import {
   LeaderboardPlace,
   showLeaderboard,
 } from "./leaderboard";
-import { MdLeaderboard } from "react-icons/md";
+import { MdLeaderboard, MdArrowBack } from "react-icons/md";
 import Link from "next/link";
 
 interface BallProps {
@@ -100,11 +100,16 @@ export const Leaderboard = () => {
   if (isLoading) return <>Loading...</>;
   if (data) {
     return (
-      <div>
-        {data.map((place: LeaderboardPlace, index: number) => (
-          <LeaderboardRow key={index} place={place} num={index + 1} />
-        ))}
-      </div>
+      <>
+        <Link href={"/stack"}>
+          <MdArrowBack className="absolute top-10 right-10 text-lightest-gray text-6xl" />
+        </Link>
+        <div>
+          {data.map((place: LeaderboardPlace, index: number) => (
+            <LeaderboardRow key={index} place={place} num={index + 1} />
+          ))}
+        </div>
+      </>
     );
   }
   return null;
